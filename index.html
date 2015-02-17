@@ -1,7 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Adam Blankenship" />
     <title>Adam's Web Tools</title>
     <style>
       html, body {
@@ -18,43 +20,46 @@
         margin:0;
         padding:0;
       }
+
       h1, h2, h3 {
         display:block;
         clear:both;
         margin:0;
         font-weight:lighter;
         text-align:left;
-        background:rgba(0,0,0,0.9);
+        background-color:rgba(0,0,0,0.9);
         color:#FEFEFE;
       }
-      h1 {
-        font-size:2em;
-      }
+
       h2 {
         font-size:1.5em;
         font-weight:lighter;
         padding:.4em .8em;
         color:#FFF;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.7);
       }
+
       h3 {
         font-size:1.1em;
       }
+
       p {
         font-size:1em;
       }
 
       a {
-        color:#06C;
         transition:all 400ms;
+        color:#09F;
       }
+
       a:visited {
-        color:#069;
+        color:#06C;
       }
+
       a:hover,
       a:focus,
       a:active {
-        color:#09F;
+        color:#69E;
       }
 
       input {
@@ -80,7 +85,16 @@
       }
 
       #nav {
-        background-color:#333;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        padding: 1em;
+
+        color: #ccc;
+        background-color: rgba(0,0,0,0.9)
       }
 
       #nav ul,
@@ -89,17 +103,25 @@
         padding: 0;
       }
 
+      #nav li {
+		  float:left;
+        display:block;
+      }
+
       #nav a {
+        display: block;
         color: #FFF;
       }
 
       #content {
         text-align:center;
+        margin-top: 3em;
         background-color:rgba(0,0,0,0.8);
       }
 
       .aside {
         background-color:rgba(222,222,222,0.2);
+        border-top: .4em solid #111;
       }
 
       .section {
@@ -121,15 +143,15 @@
       }
 
       .section ul {
-        margin:0;
-        padding:0 1em 1em;
-        background-color:rgba(0,0,0,0.6);
+        margin:.1em 0;
+        padding:.4em 1em;
+        background-color:rgba(0,0,0,0.5);
       }
 
       .section li {
-        color:#FFF;
         list-style-type: circle;
         margin:.2em 0;
+        color:#555;
       }
 
       .section a {
@@ -137,7 +159,6 @@
       }
 
       .section.main {
-
         width:100%;
         max-width:none;
       }
@@ -149,11 +170,13 @@
         padding:1em;
         text-align: center;
       }
+
       .section.main li {
         list-style:none;
         display:inline;
         margin:.8em;
       }
+
       .section.main a {
         display: inline-block;
         width: 9em;
@@ -166,6 +189,7 @@
         border-radius: 8em;
         text-decoration: none;
       }
+
       .section.main active,
       .section.main a:hover,
       .section.main a:focus {
@@ -179,99 +203,108 @@
         font-size:2.6em;
         padding:0;
       }
+
+      .active {
+        background-color:rgba(0,0,0,0.8);
+      }
     </style>
 
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
   <body>
+
     <div id="nav">
       <ul></ul>
     </div>
+
     <div id="content">
-      <div class="section main">
-        <form id="domaintools">
-          <label for="checkurl">Enter a domain to check...</label>
-          <input id="checkurl" type="text" value="www.foo.com" size="64" />
-          <label for="tests">...and select a test to run</label>
-          <ul id="tests">
-            <li><a href="https://domains.google.com/registrar?s="><i class="fa fa-power-off"></i>Domain Availability</a></li>
-            <li><a href="http://validator.w3.org/check?uri="><i class="fa fa-html5"></i>Validate HTML</a></li>
-            <li><a href="https://jigsaw.w3.org/css-validator/validator?uri="><i class="fa fa-css3"></i>Validate CSS</a></li>
-            <li><a href="http://www.google.com/webmasters/tools/richsnippets?q="><i class="fa fa-bullseye"></i>Rich Snippets</a></li>
-            <li><a href="https://developers.google.com/speed/pagespeed/insights/?url="><i class="fa fa-bolt"></i>PageSpeed</a></li>
-            <li><a href="https://moz.com/researchtools/ose/links?site="><i class="fa fa-link"></i>Open Site Explorer</a></li>
 
-          </ul>
-        </form>
+      <div id="tools" class="aside tab">
+        <h2><a href="#tools"><i class="fa fa-cogs"></i>Webtools</a></h2>
+
+        <div class="section main">
+          <form id="domaintools">
+            <label for="checkurl">Enter a domain to check...</label>
+            <input id="checkurl" type="text" value="www.foo.com" size="64" />
+            <label for="tests">...and select a test to run</label>
+            <ul id="tests">
+              <li><a href="https://domains.google.com/registrar?s="><i class="fa fa-power-off"></i>Domain Availability</a></li>
+              <li><a href="http://validator.w3.org/check?uri="><i class="fa fa-html5"></i>Validate HTML</a></li>
+              <li><a href="https://jigsaw.w3.org/css-validator/validator?uri="><i class="fa fa-css3"></i>Validate CSS</a></li>
+              <li><a href="http://www.google.com/webmasters/tools/richsnippets?q="><i class="fa fa-bullseye"></i>Rich Snippets</a></li>
+              <li><a href="https://developers.google.com/speed/pagespeed/insights/?url="><i class="fa fa-bolt"></i>PageSpeed</a></li>
+              <li><a href="https://moz.com/researchtools/ose/links?site="><i class="fa fa-link"></i>Open Site Explorer</a></li>
+            </ul>
+          </form>
+        </div>
+
+        <div class="aside">
+          <h2>Other tools</h2>
+
+          <div class="section">
+            <h2><i class="fa fa-picture-o"></i>Images</h2>
+            <ul>
+              <li><a href="http://www.favicon-generator.org/">Favicon Generator</a></li>
+              <li><a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a></li>
+              <li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
+              <li><a href="http://www.photoshop.com/tools?wf=editor">Photoshop Express</a></li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fa fa-paint-brush"></i>Design</h2>
+            <ul>
+              <li><a href="http://css3please.com/">CSS3, Please</a></li>
+              <li><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a></li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fa fa-font"></i>Typography</h2>
+            <ul>
+              <li><a href="#fontstacks" class="itool">CSS Font Stack</a></li>
+              <!--<li><a href="http://www.cssfontstack.com/" class="itool">CSS Font Stack</a></li>-->
+              <li><a href="http://www.google.com/fonts/">Google Fonts</a></li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fa fa-terminal"></i>Javascript</h2>
+            <ul>
+              <li><a href="http://closure-compiler.appspot.com/">Closure Compiler</a></li>
+              <li><a href="http://jsfiddle.net/">JS Fiddle</a></li>
+              <li>CDN Sources
+                <ul>
+                  <li><a href="https://developers.google.com/speed/libraries/devguide#libraries">Google</a></li>
+                  <li><a href="http://www.asp.net/ajax/cdn">Microsoft</a></li>
+                  <li><a href="https://cdnjs.com/">cdnjs</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fa fa-check"></i>Testing</h2>
+            <ul>
+              <li><a href="http://browsershots.org/">Browser Shots</a></li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fa fa-search"></i>SEO</h2>
+            <ul>
+              <li><a href="https://adwords.google.com/ko/KeywordPlanner">Google Keyword Planner</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-
-      <div class="aside">
-        <h2>Other tools</h2>
-
+      <div id="reference" class="aside tab">
+        <h2><a href="#reference"> <i class="fa fa-book"></i>Reference</a></h2>
 
         <div class="section">
-          <h2><i class="fa fa-picture-o"></i>Images</h2>
-          <ul>
-            <li><a href="http://www.favicon-generator.org/">Favicon Generator</a></li>
-            <li><a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a></li>
-            <li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
-            <li><a href="http://www.photoshop.com/tools?wf=editor">Photoshop Express</a></li>
-          </ul>
-        </div>
-
-
-        <div class="section">
-          <h2><i class="fa fa-paint-brush"></i>Design</h2>
-          <ul>
-            <li><a href="http://css3please.com/">CSS3, Please</a></li>
-            <li><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a></li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2><i class="fa fa-font"></i>Typography</h2>
-          <ul>
-            <li><a href="http://www.cssfontstack.com/" class="itool">CSS Font Stack</a></li>
-            <li><a href="http://www.google.com/fonts/">Google Fonts</a></li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2><i class="fa fa-terminal"></i>Javascript</h2>
-          <ul>
-            <li><a href="http://closure-compiler.appspot.com/">Closure Compiler</a></li>
-            <li><a href="http://jsfiddle.net/">JS Fiddle</a></li>
-            <li>CDN Sources
-              <ul>
-                <li><a href="https://developers.google.com/speed/libraries/devguide#libraries">Google</a></li>
-                <li><a href="http://www.asp.net/ajax/cdn">Microsoft</a></li>
-                <li><a href="https://cdnjs.com/">cdnjs</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2><i class="fa fa-check"></i>Testing</h2>
-          <ul>
-            <li><a href="http://browsershots.org/">Browser Shots</a></li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2><i class="fa fa-search"></i>SEO</h2>
-          <ul>
-            <li><a href="https://adwords.google.com/ko/KeywordPlanner">Google Keyword Planner</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="aside">
-        <h2><i class="fa fa-book"></i>Reference</h2>
-        
-        <div class="section">
+          <h2><i class="fa fa-cogs"></i></h2>
           <ul>
             <li><a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a></li>
             <li><a href="https://msdn.microsoft.com/en-us/library/">Microsoft Developer Network</a></li>
@@ -283,7 +316,7 @@
             <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></li>
           </ul>
         </div>
-        
+
         <div class="section">
           <h2>PHP</h2>
           <ul>
@@ -298,19 +331,19 @@
             <li><a href="https://api.joomla.org/">Joomla</a></li>
             <li><a href="https://developer.wordpress.org/reference/">WordPress</a></li>
           </ul>
-          </div>
-          
+        </div>
+
         <div class="section">
-          <h2>Javascript</h2>          
+          <h2>Javascript</h2>
           <ul>
             <li><a href="http://api.jquery.com/">jQuery</a></li>
             <li><a href="http://api.jqueryui.com/">jQuery-ui</a></li>
-            </ul>
-            <ul>
+          </ul>
+          <ul>
             <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
             <li><a href="http://foundation.zurb.com/">Foundation</a></li>
-            </ul>
-            <ul>
+          </ul>
+          <ul>
             <li><a href="https://docs.angularjs.org/api">Angular</a></li>
             <li><a href="http://backbonejs.org/">Backbone</a></li>
             <li><a href="http://underscorejs.org/">Underscore</a></li>
@@ -320,39 +353,45 @@
             <li><a href="http://nodejs.org/api/">Node</a></li>
           </ul>
         </div>
-        
+
         <div class="section">
           <h2>Styling</h2>
           <ul>
-            <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">SASS</a></li>
-            <li><a href="http://compass-style.org/reference/compass/">Compass</a></li>
-            <li><a href="http://bourbon.io/docs/">Bourbon</a></li>
+            <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">SASS</a>
+              <ul>
+                <li><a href="http://compass-style.org/reference/compass/">Compass</a></li>
+                <li><a href="http://bourbon.io/docs/">Bourbon</a></li>
+              </ul>
+            </li>
+            <li><a href="http://lesscss.org/features/">LESS</a></li>
           </ul>
         </div>
+
+        <div class="section">
+          <h2>Database</h2>
+          <ul>
+            <li><a href="http://dev.mysql.com/doc/">MySQL</a></li>
+            <li><a href="http://docs.mongodb.org/manual/">mongoDB</a></li>
+            <li><a href="http://www.postgresql.org/docs/">PostgreSQL</a></li>
+          </ul>
+        </div>
+
         <div class="section">
           <h2>Etc.</h2>
           <ul>
-            <li>Ruby
+            <li><a href="http://ruby-doc.org/core-2.2.0/">Ruby</a>
               <ul>
-                <li>Rails</li>
+                <li><a href="http://api.rubyonrails.org/">Rails</a></li>
               </ul>
             </li>
-            <li>Python
+            <li><a href="https://docs.python.org/2/library/">Python</a>
               <ul>
-                <li>Django</li>
+                <li><a href="https://docs.djangoproject.com/en/1.7/">Django</a></li>
               </ul>
             </li>
           </ul>
         </div>
-      </div>
-
-
-      <div id="fontstacks" class="itool">
-        <p class="font"
-           data-style="&quot;Lucida Bright&quot;, Georgia, serif;">
-          Lucida Bright
-        </p>
-      </div>
+      </div>s
 
     </div>
 
@@ -364,14 +403,19 @@
           var v = $('#domaintools');
           var a = v.find('a');
 
+          updatelink();
+          v.on('keyup', function(e){
+            if(e.which == 13) {
+              e.preventDefault();
+            }
+          });
+
           a.each(function () {
             var t = $(this);
             t.attr('data-link', t.attr('href'))
           });
-          updatelink();
-          v.on('keyup', updatelink);
 
-          function updatelink() {
+          function updatelink(e) {
             a.each(function () {
               var olink = $(this).attr('data-link');
               var nlink = olink + v.find('input').val();
@@ -385,29 +429,18 @@
           $('input').on('focus', function () {
             $(this).val('');
           });
-          console.log(print_r($('.section h2')));
-          $('#nav ul').append('<li>' + $('.section h2') + '</li>');
+
+          // $('#nav ul').append('<li>' + $('.section').find('h2') + '</li>');
+          $('.aside.tab').each(function () {
+            var t = $(this);
+            var title = t.find(' > h2').html();
+           // console.log(title);
+            $('#nav').find('ul').append('<li>' + title + '</li>');
+          });
 
         })();
 
-        (function fontstacks() {
-          var p = $('.font');
-          $('.font').each(function () {
-            var t = $(this);
-            var stack = t.attr('data-style');
-            t.css("font-family", stack)
-              .after('<p>font-family: ' + stack + '</p>');
-          });
 
-          //$('.itool').hide();
-          $('a').attr('href^=#').click(function (e) {
-            e.preventDefault();
-            var t = $(this);
-            var l = t.attr('href').slice(1);
-
-            alert();
-          });
-        })();
       })(jQuery)
     </script>
   </body>
