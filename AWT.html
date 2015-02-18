@@ -3,7 +3,6 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Adam Blankenship" />
     <title>Adam's Web Tools</title>
     <style>
       html, body {
@@ -14,13 +13,12 @@
         background-attachment:fixed;
       }
 
-      div, input, li, h1, h2, h3, p, a, i {
+      div, input, ul, li, h1, h2, h3, p, a, i {
         position:relative;
         display: block;
         margin:0;
         padding:0;
       }
-
       h1, h2, h3 {
         display:block;
         clear:both;
@@ -30,19 +28,24 @@
         background-color:rgba(0,0,0,0.9);
         color:#FEFEFE;
       }
-
+      h1 {
+        background-color:transparent;
+        text-indent: -999em;
+        margin: 1.6em 0.7em 0px;
+        width:128px;
+        height: 64px;
+        background-image: url(assets/awt.png);
+      }
       h2 {
         font-size:1.5em;
         font-weight:lighter;
         padding:.4em .8em;
         color:#FFF;
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.5);
       }
-
       h3 {
         font-size:1.1em;
       }
-
       p {
         font-size:1em;
       }
@@ -51,30 +54,37 @@
         transition:all 400ms;
         color:#09F;
       }
-
       a:visited {
         color:#06C;
       }
-
+      ,
+      a:active,
       a:hover,
-      a:focus,
-      a:active {
+      a:focus {
         color:#69E;
       }
 
       input {
-        width:60%;
-        font-size:1.2em;
-        margin: 3em auto 2em;
-        padding:.6em .8em;
+        display: inline;
         border-radius: .4em;
-        box-shadow: 0 0 .4em .4em #555;
+        padding:.6em .8em;
+        margin: 1em auto;
+        font-size: 1.1em;
+      }
 
+      input[type=text] {
+        width:60%;
+        box-shadow: 0 0 .4em .4em #555;
+      }
+
+      input[type=submit] {
+        width:5em;
+        cursor: pointer;
       }
 
       label {
         display:block;
-        padding:2em 0 0;
+        padding:1em 0;
         text-align:center;
         font-size:1.2em;
         color:#CCC;
@@ -85,43 +95,46 @@
       }
 
       #nav {
-        display: block;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 1;
-        padding: 1em;
-
+        z-index: 99;
         color: #ccc;
-        background-color: rgba(0,0,0,0.9)
+        background-color: #222;
+        border-bottom: #111 .2em solid;
       }
 
       #nav ul,
       #nav li {
-        margin: 0;
-        padding: 0;
+        float: left;
       }
 
-      #nav li {
-		  float:left;
-        display:block;
-      }
-
-      #nav a {
+      #nav a,
+      #nav a:visited {
         display: block;
-        color: #FFF;
+        margin: .2em;
+        padding: .4em;
+        color: #808080;
+      }
+
+      #nav a:active,
+      #nav a:hover,
+      #nav a:focus {
+        color: #EEE;
       }
 
       #content {
         text-align:center;
-        margin-top: 3em;
+        margin: 3em 0 0;
         background-color:rgba(0,0,0,0.8);
+      }
+
+      #search input[type=submit] {
       }
 
       .aside {
         background-color:rgba(222,222,222,0.2);
-        border-top: .4em solid #111;
       }
 
       .section {
@@ -136,31 +149,36 @@
         text-align:left;
       }
 
+      .section a {
+        padding: .8em .6em;
+      }
+
+      .section a:active,
       .section a:hover,
-      .section a:focus,
-      .section a:active{
+      .section a:focus {
         background-color:rgba(0,0,0,0.9);
       }
 
       .section ul {
-        margin:.1em 0;
-        padding:.4em 1em;
-        background-color:rgba(0,0,0,0.5);
+        margin:0;
+        padding:0 1em 1em;
+        background-color:rgba(0,0,0,0.6);
       }
 
       .section li {
+        color:#FFF;
         list-style-type: circle;
         margin:.2em 0;
-        color:#555;
-      }
-
-      .section a {
-        padding: .8em .6em;
       }
 
       .section.main {
         width:100%;
         max-width:none;
+				background-color:rgba(0, 150, 200, 0.4);
+      }
+
+      .section.main input {
+        display: block;
       }
 
       .section.main ul {
@@ -170,7 +188,6 @@
         padding:1em;
         text-align: center;
       }
-
       .section.main li {
         list-style:none;
         display:inline;
@@ -204,8 +221,29 @@
         padding:0;
       }
 
-      .active {
-        background-color:rgba(0,0,0,0.8);
+      @media (max-width: 650px) {
+
+        input[type=text]{
+          width: 85%;
+        }
+
+        #nav ul {
+          text-align: center;
+        }
+
+        #nav li,
+        #nav a {
+          float: none;
+          display: inline-block;          
+        }
+
+        .section.main a {
+          width: 9em;
+          height: 4em;
+          margin: .4em;
+          padding:.4em;
+        }
+
       }
     </style>
 
@@ -217,91 +255,104 @@
     <div id="nav">
       <ul></ul>
     </div>
-
     <div id="content">
 
-      <div id="tools" class="aside tab">
-        <h2><a href="#tools"><i class="fa fa-cogs"></i>Webtools</a></h2>
+      <div id="search" class="aside tab">
+        <h2><a href="#search"><i class="fa fa-search"></i>Search</a></h2>
+        <form method="get" action="http://www.google.com/search">
+          <img src="http://developers.google.com/_static/images/v2/developers-logo.png">
+          <input type="text"   name="q" size="25" maxlength="255" value="Search Term" />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+
+      <div id="test" class="aside tab">
+        <h2><a href="#test"><i class="fa fa-cogs"></i>Tests</a></h2>
 
         <div class="section main">
           <form id="domaintools">
-            <label for="checkurl">Enter a domain to check...</label>
+            <label for="checkurl">Enter a domain to test...</label>
             <input id="checkurl" type="text" value="www.foo.com" size="64" />
             <label for="tests">...and select a test to run</label>
             <ul id="tests">
               <li><a href="https://domains.google.com/registrar?s="><i class="fa fa-power-off"></i>Domain Availability</a></li>
+              <li><a href="https://developers.google.com/speed/pagespeed/insights/?url="><i class="fa fa-bolt"></i>PageSpeed</a></li>
               <li><a href="http://validator.w3.org/check?uri="><i class="fa fa-html5"></i>Validate HTML</a></li>
               <li><a href="https://jigsaw.w3.org/css-validator/validator?uri="><i class="fa fa-css3"></i>Validate CSS</a></li>
               <li><a href="http://www.google.com/webmasters/tools/richsnippets?q="><i class="fa fa-bullseye"></i>Rich Snippets</a></li>
-              <li><a href="https://developers.google.com/speed/pagespeed/insights/?url="><i class="fa fa-bolt"></i>PageSpeed</a></li>
               <li><a href="https://moz.com/researchtools/ose/links?site="><i class="fa fa-link"></i>Open Site Explorer</a></li>
+
             </ul>
           </form>
         </div>
+      </div>
 
-        <div class="aside">
-          <h2>Other tools</h2>
+      <div id="tools" class="aside tab">
+        <h2><a href="#tools"><i class="fa fa-wrench"></i>Tools</a></h2>
 
-          <div class="section">
-            <h2><i class="fa fa-picture-o"></i>Images</h2>
-            <ul>
-              <li><a href="http://www.favicon-generator.org/">Favicon Generator</a></li>
-              <li><a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a></li>
-              <li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
-              <li><a href="http://www.photoshop.com/tools?wf=editor">Photoshop Express</a></li>
-            </ul>
-          </div>
+        <div class="section">
+          <h2><i class="fa fa-picture-o"></i>Images</h2>
+          <ul>
+            <li><a href="http://www.favicon-generator.org/">Favicon Generator</a></li>
+            <li><a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a></li>
+            <li><a href="https://icomoon.io/app/#/select">Icomoon</a></li>
+            <li><a href="http://lorempixel.com/">LoremPixel</a></li>
+            <li><a href="http://www.photoshop.com/tools?wf=editor">Photoshop Express</a></li>
 
-          <div class="section">
-            <h2><i class="fa fa-paint-brush"></i>Design</h2>
-            <ul>
-              <li><a href="http://css3please.com/">CSS3, Please</a></li>
-              <li><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a></li>
-            </ul>
-          </div>
+          </ul>
+        </div>
 
-          <div class="section">
-            <h2><i class="fa fa-font"></i>Typography</h2>
-            <ul>
-              <li><a href="#fontstacks" class="itool">CSS Font Stack</a></li>
-              <!--<li><a href="http://www.cssfontstack.com/" class="itool">CSS Font Stack</a></li>-->
-              <li><a href="http://www.google.com/fonts/">Google Fonts</a></li>
-            </ul>
-          </div>
+        <div class="section">
+          <h2><i class="fa fa-paint-brush"></i>Design</h2>
+          <ul>
+            <li><a href="http://css3please.com/">CSS3, Please</a></li>
+            <li><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a></li>
+          </ul>
+        </div>
 
-          <div class="section">
-            <h2><i class="fa fa-terminal"></i>Javascript</h2>
-            <ul>
-              <li><a href="http://closure-compiler.appspot.com/">Closure Compiler</a></li>
-              <li><a href="http://jsfiddle.net/">JS Fiddle</a></li>
-              <li>CDN Sources
-                <ul>
-                  <li><a href="https://developers.google.com/speed/libraries/devguide#libraries">Google</a></li>
-                  <li><a href="http://www.asp.net/ajax/cdn">Microsoft</a></li>
-                  <li><a href="https://cdnjs.com/">cdnjs</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+        <div class="section">
+          <h2><i class="fa fa-font"></i>Typography</h2>
+          <ul>
+            <li><a href="http://www.cssfontstack.com/" class="itool">CSS Font Stack</a></li>
+            <li><a href="http://www.google.com/fonts/">Google Fonts</a></li>
+            <li><a href="http://www.typegenius.com/">Type Genius</a></li>
+          </ul>
+        </div>
 
-          <div class="section">
-            <h2><i class="fa fa-check"></i>Testing</h2>
-            <ul>
-              <li><a href="http://browsershots.org/">Browser Shots</a></li>
-            </ul>
-          </div>
+        <div class="section">
+          <h2><i class="fa fa-terminal"></i>Javascript</h2>
+          <ul>
+            <li><a href="http://closure-compiler.appspot.com/">Closure Compiler</a></li>
+            <li><a href="http://jsfiddle.net/">JS Fiddle</a></li>
+            <li><a href="http://www.jslab.dk/tools.regex.php">Regex Generator</a></li>
+            <li>CDN Sources
+              <ul>
+                <li><a href="https://developers.google.com/speed/libraries/devguide#libraries">Google</a></li>
+                <li><a href="http://www.asp.net/ajax/cdn">Microsoft</a></li>
+                <li><a href="https://cdnjs.com/">cdnjs</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
 
-          <div class="section">
-            <h2><i class="fa fa-search"></i>SEO</h2>
-            <ul>
-              <li><a href="https://adwords.google.com/ko/KeywordPlanner">Google Keyword Planner</a></li>
-            </ul>
-          </div>
+        <div class="section">
+          <h2><i class="fa fa-check"></i>Testing</h2>
+          <ul>
+            <li><a href="http://browsershots.org/">Browser Shots</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><i class="fa fa-search"></i>SEO</h2>
+          <ul>
+            <li><a href="https://adwords.google.com/ko/KeywordPlanner">Google Keyword Planner</a></li>
+            <li><a href="http://keywordtool.io/">Keyword Tool</a></li>
+          </ul>
         </div>
       </div>
 
       <div id="reference" class="aside tab">
-        <h2><a href="#reference"> <i class="fa fa-book"></i>Reference</a></h2>
+        <h2><a href="#reference"><i class="fa fa-book"></i>Reference</a></h2>
 
         <div class="section">
           <h2><i class="fa fa-cogs"></i></h2>
@@ -361,8 +412,7 @@
               <ul>
                 <li><a href="http://compass-style.org/reference/compass/">Compass</a></li>
                 <li><a href="http://bourbon.io/docs/">Bourbon</a></li>
-              </ul>
-            </li>
+              </ul></li>
             <li><a href="http://lesscss.org/features/">LESS</a></li>
           </ul>
         </div>
@@ -391,57 +441,91 @@
             </li>
           </ul>
         </div>
-      </div>s
+      </div>
 
-    </div>
+      <div id="inspiration" class="aside tab">
+        <h2><a href="#inspiration"><i class="fa fa-eye"></i>Inspiration</a></h2>
+        <div class="section">
+          <ul>
+            <li><a href="http://codepen.io/">Codepen</a></li>
+            <li><a href="http://cssdeck.com/">CSSDeck</a></li>
+            <li><a href="http://codyhouse.co/library/">Codyhouse</a></li>
+          </ul>
+        </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <div class="section">
+          <ul>
+            <li><a href="http://addyosmani.com/blog/">Addy Osmani</a></li>
+            <li><a href="http://davidwalsh.name/">David Walsh</a></li>
+            <li><a href="http://www.lukew.com/ff/">Luke Wroblewski</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <ul>
+            <li><a href="http://alistapart.com/">A List Apart</a></li>
+            <li><a href="http://tympanus.net/codrops/">Codrops</a></li>
+            <li><a href="https://scotch.io">Scotch</a></li>
+            <li><a href="http://www.sitepoint.com/">Sitepoint</a></li>
+            <li><a href="http://sixrevisions.com/">Six Revisiona</a></li>
+            <li><a href="http://www.smashingmagazine.com/">Smashing Magazine</a></li>
+            <li><a href="http://speckyboy.com/">Speckyboy</a></li>
+            <li><a href="http://www.webdesignerdepot.com/">Web Designer Depot</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <ul>
+            <li><a href="http://www.awwwards.com/">Awwwards</a></li>
+            <li><a href="https://www.thebestdesigns.com/">The Best Designs</a></li>
+            <li><a href="http://www.webcreme.com/">Web Creme</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- /#content -->
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       (function ($) {
+
+        (function ui() {
+          $('input[type=text]').on('focus', function () {
+            if (this.value == this.defaultValue) {
+              this.value = '';
+            }
+          });
+          // $('#nav ul').append('<li>' + $('.section').find('h2') + '</li>');
+          $('.aside.tab').each(function () {
+            var title = $(this).find(' > h2');
+            $('#nav').find('ul').append('<li>' + title.html() + '</li>');
+            title.find('i').unwrap();
+          });
+        })();
 
         (function domaintools() {
           var v = $('#domaintools');
           var a = v.find('a');
 
-          updatelink();
-          v.on('keyup', function(e){
-            if(e.which == 13) {
-              e.preventDefault();
-            }
-          });
-
           a.each(function () {
-            var t = $(this);
-            t.attr('data-link', t.attr('href'))
+            $(this).data('link', $(this).attr('href'));
           });
 
-          function updatelink(e) {
-            a.each(function () {
-              var olink = $(this).attr('data-link');
-              var nlink = olink + v.find('input').val();
+          updatelink();
+          v.find('input').on('keyup', updatelink);
 
-              $(this).attr('href', nlink);
+          function updatelink() {
+            a.each(function () {
+              var blink = $(this).data('link');
+              var url = v.find('input').val();
+
+              $(this).attr('href', blink + url);
             });
           }
         })();
 
-        (function ui() {
-          $('input').on('focus', function () {
-            $(this).val('');
-          });
-
-          // $('#nav ul').append('<li>' + $('.section').find('h2') + '</li>');
-          $('.aside.tab').each(function () {
-            var t = $(this);
-            var title = t.find(' > h2').html();
-           // console.log(title);
-            $('#nav').find('ul').append('<li>' + title + '</li>');
-          });
-
-        })();
-
-
-      })(jQuery)
+      })(jQuery);
     </script>
   </body>
 </html>
