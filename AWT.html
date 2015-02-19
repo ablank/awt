@@ -6,265 +6,284 @@
     <title>Adam's Web Tools</title>
 
     <style>
-      @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 400;
-        src: local("Lato Regular"), local("Lato-Regular"), url(http://fonts.gstatic.com/s/lato/v11/1YwB1sO8YE1Lyjf12WNiUA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/lato/v11/9k-RPmcnxYEPm8CNFsH2gg.woff) format("woff");
-      }
-      @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 700;
-        src: local("Lato Bold"), local("Lato-Bold"), url(http://fonts.gstatic.com/s/lato/v11/H2DMvhDLycM56KNuAtbJYA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/lato/v11/wkfQbvfT_02e2IWO3yYueQ.woff) format("woff");
-      }
-      @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        src: local("Roboto"), local("Roboto-Regular"), url(http://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff) format("woff");
-      }
-      @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        src: local("Roboto Bold"), local("Roboto-Bold"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
-      }
-      @font-face {
-        font-family: 'Roboto';
-        font-style: italic;
-        font-weight: 300;
-        src: local("Roboto Light Italic"), local("Roboto-LightItalic"), url(http://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at4bN6UDyHWBl620a-IRfuBk.woff) format("woff");
-      }
-      html, body {
-        margin: 0;
-        padding: 0;
-        color: #999;
-        background-color: #FEFEFE;
-        background-image: url("http://images2.alphacoders.com/121/121990.jpg");
-        background-attachment: fixed;
-        font-family: 'Roboto';
-      }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato Regular"), local("Lato-Regular"), url(http://fonts.gstatic.com/s/lato/v11/1YwB1sO8YE1Lyjf12WNiUA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/lato/v11/9k-RPmcnxYEPm8CNFsH2gg.woff) format("woff");
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Lato Bold"), local("Lato-Bold"), url(http://fonts.gstatic.com/s/lato/v11/H2DMvhDLycM56KNuAtbJYA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/lato/v11/wkfQbvfT_02e2IWO3yYueQ.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url(http://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 300;
+  src: local("Roboto Light Italic"), local("Roboto-LightItalic"), url(http://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at4bN6UDyHWBl620a-IRfuBk.woff) format("woff");
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #999;
+  background-color: #FEFEFE;
+  background-image: url("http://images2.alphacoders.com/121/121990.jpg");
+  background-attachment: fixed;
+  font-family: 'Roboto';
+}
 
-      div, input, ul, li, h1, h2, h3, p, a, i {
-        position: relative;
-        display: block;
-        margin: 0;
-        padding: 0;
-      }
+div, input, ul, li, h1, h2, h3, p, a, i {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
 
-      h1, h2, h3 {
-        display: block;
-        clear: both;
-        font-weight: lighter;
-        text-align: left;
-        padding: .4em .8em;
-        color: #FEFEFE;
-        background-color: #112;
-        font-family: 'Lato';
-      }
+h1, h2, h3 {
+  display: block;
+  clear: both;
+  font-weight: lighter;
+  text-align: left;
+  padding: .4em .8em;
+  color: #FEFEFE;
+  background-color: #112;
+  font-family: 'Lato';
+}
 
-      h2 {
-        font-size: 1.5em;
-      }
+h2 {
+  font-size: 1.5em;
+}
 
-      h3 {
-        font-size: 1.1em;
-      }
+h3 {
+  font-size: 1.1em;
+}
 
-      p {
-        font-size: 1em;
-      }
+p {
+  font-size: 1em;
+}
 
-      a {
-        text-decoration: none;
-        color: #006689;
-        transition: all 400ms;
-      }
-      a:visited {
-        color: #004056;
-      }
-      a:active, a:hover, a:focus {
-        color: #008cbc;
-      }
+a {
+  text-decoration: none;
+  color: #006689;
+  transition: all 400ms;
+}
+a:visited {
+  color: #004056;
+}
+a:active, a:hover, a:focus {
+  color: #008cbc;
+}
 
-      form {
-        max-width: 750px;
-        margin: 0 auto;
-      }
+form {
+  max-width: 750px;
+  margin: 0 auto;
+}
 
-      input {
-        display: inline;
-        border-radius: 9em;
-        padding: .6em .8em;
-        margin: 1em auto;
-        font-size: 1.1em;
-      }
-      input[type=text] {
-        width: 60%;
-        max-width: 650px;
-        box-shadow: 0 0 0.4em 0.4em #e5e5e5;
-      }
-      input[type=submit] {
-        width: 5em;
-        cursor: pointer;
-      }
+input {
+  display: inline;
+  border-radius: 9em;
+  padding: .6em .8em;
+  margin: 1em auto;
+  font-size: 1.1em;
+}
+input[type=text] {
+  width: 60%;
+  max-width: 650px;
+  box-shadow: 0 0 0.4em 0.4em #e5e5e5;
+}
+input[type=submit] {
+  width: 5em;
+  cursor: pointer;
+}
 
-      legend {
-        display: block;
-        padding: 1em;
-        text-align: center;
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #FEFEFE;
-        background-color: #112;
-        box-shadow: 0 0 0.4em 0 black;
-      }
+legend {
+  display: block;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FEFEFE;
+  background-color: #868686;
+  box-shadow: 0 0 0.4em 0 black;
+}
 
-      i {
-        font-size: 1.5em;
-        padding: 0 .6em 0 0;
-      }
+i {
+  font-size: 1.5em;
+  padding: 0 .6em 0 0;
+}
 
-      #nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 99;
-        background-color: rgba(17, 17, 34, 0.8);
-        border-bottom: #112 0.2em solid;
-        transition: all 800ms;
-      }
-      #nav:hover {
-        background-color: #112;
-      }
-      #nav ul,
-      #nav li {
-        float: left;
-      }
-      #nav a,
-      #nav a:visited {
-        display: block;
-        margin: .2em;
-        padding: .4em;
-        color: #cbcbcb;
-      }
-      #nav a:active, #nav a:hover, #nav a:focus {
-        color: #FEFEFE;
-        text-decoration: underline;
-      }
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: rgba(17, 17, 34, 0.8);
+  border-bottom: #112 0.2em solid;
+  transition: all 800ms;
+}
+#nav:hover {
+  background-color: #112;
+}
+#nav ul,
+#nav li {
+  float: left;
+}
+#nav a,
+#nav a:visited {
+  display: block;
+  margin: .2em;
+  padding: .4em;
+  color: #cbcbcb;
+}
+#nav a:active, #nav a:hover, #nav a:focus {
+  color: #FEFEFE;
+  text-decoration: underline;
+}
 
-      #content {
-        text-align: center;
-        margin: 2.5em 0 0;
-        background-color: rgba(254, 254, 254, 0.8);
-      }
+#content {
+  text-align: center;
+  margin: 2.5em 0 0;
+  background-color: rgba(254, 254, 254, 0.9);
+}
 
-      .main {
-        width: 100%;
-        max-width: none;
-        background-color: rgba(254, 254, 254, 0.4);
-      }
-      .main > h2 {
-        background-color: rgba(17, 17, 34, 0.5);
-      }
+.main {
+  width: 100%;
+  max-width: none;
+  padding: 0 0 3em;
+}
+.main > h2 {
+  margin: 0 0 1em;
+  padding: 2.4em .5em .2em;
+  background-color: rgba(17, 17, 34, 0.5);
+}
 
-      .sub {
-        display: inline-block;
-        width: 25%;
-        min-width: 20em;
-        max-width: 30em;
-        margin: 0 0 1.4em 0;
-        vertical-align: top;
-        text-align: left;
-        background-color: rgba(254, 254, 254, 0.9);
-      }
-      .sub ul {
-        padding: 0 1em;
-      }
-      .sub li {
-        list-style-type: circle;
-        margin: .1em 0;
-      }
-      .sub a {
-        padding: .4em;
-        border-bottom: #e5e5e5 1px solid;
-      }
-      .sub a:active, .sub a:hover, .sub a:focus {
-        background-color: rgba(17, 17, 34, 0.1);
-        border-color: #b2b2b2;
-      }
+.sub {
+  display: inline-block;
+  width: 25%;
+  min-width: 20em;
+  max-width: 30em;
+  margin: 0 0 1.4em 0;
+  vertical-align: top;
+  text-align: left;
+  background-color: rgba(254, 254, 254, 0.9);
+}
+.sub ul {
+  padding: 0 1em;
+}
+.sub li {
+  list-style-type: circle;
+  margin: .1em 0;
+}
+.sub a {
+  padding: .4em;
+  border-bottom: #e5e5e5 1px solid;
+}
+.sub a:active, .sub a:hover, .sub a:focus {
+  background-color: rgba(17, 17, 34, 0.1);
+  border-color: #b2b2b2;
+}
 
-      .hilight {
-        background-color: rgba(203, 203, 203, 0.9);
-      }
-      .hilight ul {
-        display: table;
-        text-align: center;
-      }
-      .hilight li {
-        list-style: none;
-        display: inline;
-        margin: 1em .4em;
-      }
-      .hilight a {
-        display: inline-block;
-        margin: .4em;
-        padding: .4em 1.2em;
-        text-decoration: none;
-        background-clip: padding-box;
-        background-color: #FEFEFE;
-        border: .2em solid;
-        border-radius: 8em;
-      }
-      .hilight a i {
-        display: block;
-        font-size: 1.8em;
-        padding: 0;
-      }
+.hilight {
+  background-color: rgba(229, 229, 229, 0.9);
+}
+.hilight ul {
+  display: table;
+  text-align: center;
+}
+.hilight li {
+  list-style: none;
+  display: inline;
+  margin: 1em .4em;
+}
+.hilight a {
+  display: inline-block;
+  margin: .4em;
+  padding: .4em 1.2em;
+  text-decoration: none;
+  background-clip: padding-box;
+  border: .2em solid;
+  border-radius: 8em;
+  background-color: #006689;
+  color: #FEFEFE;
+}
+.hilight a:visited {
+  background-color: #004056;
+}
+.hilight a:active, .hilight a:focus, .hilight a:hover {
+  background-color: #008cbc;
+}
+.hilight a i {
+  display: block;
+  font-size: 1.8em;
+  padding: 0;
+}
 
-      input[type=submit]:hover,
-      .hilight a:hover {
-        box-shadow: 0px 0px 0.6em 0.1em rgba(51, 51, 102, 0.75);
-        transition: all 800ms;
-      }
+input[type=submit]:hover,
+.hilight a:hover {
+  box-shadow: 0px 0px 0.6em 0.1em rgba(51, 51, 102, 0.75);
+  transition: all 800ms;
+}
 
-      .masonry {
-        display: block;
-        clear: both;
-        margin: auto;
-      }
+.masonry {
+  display: block;
+  clear: both;
+  margin: auto;
+}
 
-      @media (max-width: 650px) {
-        section a {
-          padding: .6em;
-        }
+@media (max-width: 650px) {
+  section a {
+    padding: .6em;
+  }
 
-        input[type=text] {
-          width: 85%;
-        }
+  input[type=text] {
+    width: 85%;
+  }
 
-        #nav ul {
-          text-align: center;
-        }
-        #nav li,
-        #nav a {
-          float: none;
-          display: inline-block;
-        }
+  #nav ul {
+    text-align: center;
+  }
+  #nav li,
+  #nav a {
+    float: none;
+    display: inline-block;
+  }
 
-        .sub {
-          min-width: 12em a;
-          min-width-padding: .8em .4em;
-        }
+  .sub {
+    padding: 0;
+    width: 49%;
+    min-width: 10em;
+    max-width: 20em;
+    margin-bottom: .5em;
+    border-left: .2em solid;
+  }
+  .sub a {
+    padding: 1em .4em;
+  }
 
-        .hilight i {
-          font-size: 1.4em;
-        }
-      }
-
+  .hilight a {
+    width: 10em;
+  }
+  .hilight i {
+    font-size: 1.4em;
+  }
+}
     </style>
+
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
