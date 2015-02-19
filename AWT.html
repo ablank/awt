@@ -4,94 +4,126 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adam's Web Tools</title>
+
     <style>
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: local("Lato Regular"), local("Lato-Regular"), url(http://fonts.gstatic.com/s/lato/v11/1YwB1sO8YE1Lyjf12WNiUA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/lato/v11/9k-RPmcnxYEPm8CNFsH2gg.woff) format("woff");
+      }
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        src: local("Lato Bold"), local("Lato-Bold"), url(http://fonts.gstatic.com/s/lato/v11/H2DMvhDLycM56KNuAtbJYA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/lato/v11/wkfQbvfT_02e2IWO3yYueQ.woff) format("woff");
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        src: local("Roboto"), local("Roboto-Regular"), url(http://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff) format("woff");
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        src: local("Roboto Bold"), local("Roboto-Bold"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-style: italic;
+        font-weight: 300;
+        src: local("Roboto Light Italic"), local("Roboto-LightItalic"), url(http://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"), url(http://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at4bN6UDyHWBl620a-IRfuBk.woff) format("woff");
+      }
       html, body {
-        margin:0;
-        padding:0;
-        color:#222;
+        margin: 0;
+        padding: 0;
+        color: #999;
+        background-color: #FEFEFE;
         background-image: url("http://images2.alphacoders.com/121/121990.jpg");
-        background-attachment:fixed;
+        background-attachment: fixed;
+        font-family: 'Roboto';
       }
 
       div, input, ul, li, h1, h2, h3, p, a, i {
-        position:relative;
+        position: relative;
         display: block;
-        margin:0;
-        padding:0;
+        margin: 0;
+        padding: 0;
       }
+
       h1, h2, h3 {
-        display:block;
-        clear:both;
-        margin:0;
-        font-weight:lighter;
-        text-align:left;
-        background-color:rgba(0,0,0,0.9);
-        color:#FEFEFE;
+        display: block;
+        clear: both;
+        font-weight: lighter;
+        text-align: left;
+        padding: .4em .8em;
+        color: #FEFEFE;
+        background-color: #112;
+        font-family: 'Lato';
       }
-      h1 {
-        background-color:transparent;
-        text-indent: -999em;
-        margin: 1.6em 0.7em 0px;
-        width:128px;
-        height: 64px;
-        background-image: url(assets/awt.png);
-      }
+
       h2 {
-        font-size:1.5em;
-        font-weight:lighter;
-        padding:.4em .8em;
-        color:#FFF;
-        background-color: rgba(0,0,0,0.5);
+        font-size: 1.5em;
       }
+
       h3 {
-        font-size:1.1em;
+        font-size: 1.1em;
       }
+
       p {
-        font-size:1em;
+        font-size: 1em;
       }
 
       a {
-        transition:all 400ms;
-        color:#09F;
+        text-decoration: none;
+        color: #006689;
+        transition: all 400ms;
       }
       a:visited {
-        color:#06C;
+        color: #004056;
       }
-      ,
-      a:active,
-      a:hover,
-      a:focus {
-        color:#69E;
+      a:active, a:hover, a:focus {
+        color: #008cbc;
+      }
+
+      form {
+        max-width: 750px;
+        margin: 0 auto;
       }
 
       input {
         display: inline;
-        border-radius: .4em;
-        padding:.6em .8em;
+        border-radius: 9em;
+        padding: .6em .8em;
         margin: 1em auto;
         font-size: 1.1em;
       }
-
       input[type=text] {
-        width:60%;
-        box-shadow: 0 0 .4em .4em #555;
+        width: 60%;
+        max-width: 650px;
+        box-shadow: 0 0 0.4em 0.4em #e5e5e5;
       }
-
       input[type=submit] {
-        width:5em;
+        width: 5em;
         cursor: pointer;
       }
 
-      label {
-        display:block;
-        padding:1em 0;
-        text-align:center;
-        font-size:1.2em;
-        color:#CCC;
+      legend {
+        display: block;
+        padding: 1em;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #FEFEFE;
+        background-color: #112;
+        box-shadow: 0 0 0.4em 0 black;
       }
 
       i {
-        padding:.4em;
+        font-size: 1.5em;
+        padding: 0 .6em 0 0;
       }
 
       #nav {
@@ -100,153 +132,139 @@
         left: 0;
         width: 100%;
         z-index: 99;
-        color: #ccc;
-        background-color: #222;
-        border-bottom: #111 .2em solid;
+        background-color: rgba(17, 17, 34, 0.8);
+        border-bottom: #112 0.2em solid;
+        transition: all 800ms;
       }
-
+      #nav:hover {
+        background-color: #112;
+      }
       #nav ul,
       #nav li {
         float: left;
       }
-
       #nav a,
       #nav a:visited {
         display: block;
         margin: .2em;
         padding: .4em;
-        color: #808080;
+        color: #cbcbcb;
       }
-
-      #nav a:active,
-      #nav a:hover,
-      #nav a:focus {
-        color: #EEE;
+      #nav a:active, #nav a:hover, #nav a:focus {
+        color: #FEFEFE;
+        text-decoration: underline;
       }
 
       #content {
-        text-align:center;
-        margin: 3em 0 0;
-        background-color:rgba(0,0,0,0.8);
+        text-align: center;
+        margin: 2.5em 0 0;
+        background-color: rgba(254, 254, 254, 0.8);
       }
 
-      #search input[type=submit] {
+      .main {
+        width: 100%;
+        max-width: none;
+        background-color: rgba(254, 254, 254, 0.4);
+      }
+      .main > h2 {
+        background-color: rgba(17, 17, 34, 0.5);
       }
 
-      .aside {
-        background-color:rgba(222,222,222,0.2);
-      }
-
-      .section {
-        display:inline-block;
+      .sub {
+        display: inline-block;
         width: 25%;
-        min-width:14em;
-        max-width:20em;
-        color: #039;
-        margin: .2em;
-        background-color: rgba(0,0,0,0.3);
+        min-width: 20em;
+        max-width: 30em;
+        margin: 0 0 1.4em 0;
         vertical-align: top;
-        text-align:left;
+        text-align: left;
+        background-color: rgba(254, 254, 254, 0.9);
       }
-
-      .section a {
-        padding: .8em .6em;
+      .sub ul {
+        padding: 0 1em;
       }
-
-      .section a:active,
-      .section a:hover,
-      .section a:focus {
-        background-color:rgba(0,0,0,0.9);
-      }
-
-      .section ul {
-        margin:0;
-        padding:0 1em 1em;
-        background-color:rgba(0,0,0,0.6);
-      }
-
-      .section li {
-        color:#FFF;
+      .sub li {
         list-style-type: circle;
-        margin:.2em 0;
+        margin: .1em 0;
+      }
+      .sub a {
+        padding: .4em;
+        border-bottom: #e5e5e5 1px solid;
+      }
+      .sub a:active, .sub a:hover, .sub a:focus {
+        background-color: rgba(17, 17, 34, 0.1);
+        border-color: #b2b2b2;
       }
 
-      .section.main {
-        width:100%;
-        max-width:none;
-				background-color:rgba(0, 150, 200, 0.4);
+      .hilight {
+        background-color: rgba(203, 203, 203, 0.9);
       }
-
-      .section.main input {
-        display: block;
-      }
-
-      .section.main ul {
+      .hilight ul {
         display: table;
-        width: 90%;
-        margin:0 auto;
-        padding:1em;
         text-align: center;
       }
-      .section.main li {
-        list-style:none;
-        display:inline;
-        margin:.8em;
+      .hilight li {
+        list-style: none;
+        display: inline;
+        margin: 1em .4em;
       }
-
-      .section.main a {
+      .hilight a {
         display: inline-block;
-        width: 9em;
-        height: 4em;
         margin: .4em;
-        padding:.4em;
-        color: #222;
-        background-color: #F5F5F5;
-        border: .2em solid #666;
-        border-radius: 8em;
+        padding: .4em 1.2em;
         text-decoration: none;
+        background-clip: padding-box;
+        background-color: #FEFEFE;
+        border: .2em solid;
+        border-radius: 8em;
       }
-
-      .section.main active,
-      .section.main a:hover,
-      .section.main a:focus {
-        color: #06C;
-        border-color:#06C;
-        background-color: #F5F5F5;
-      }
-
-      .section.main i {
+      .hilight a i {
         display: block;
-        font-size:2.6em;
-        padding:0;
+        font-size: 1.8em;
+        padding: 0;
+      }
+
+      input[type=submit]:hover,
+      .hilight a:hover {
+        box-shadow: 0px 0px 0.6em 0.1em rgba(51, 51, 102, 0.75);
+        transition: all 800ms;
+      }
+
+      .masonry {
+        display: block;
+        clear: both;
+        margin: auto;
       }
 
       @media (max-width: 650px) {
+        section a {
+          padding: .6em;
+        }
 
-        input[type=text]{
+        input[type=text] {
           width: 85%;
         }
 
         #nav ul {
           text-align: center;
         }
-
         #nav li,
         #nav a {
           float: none;
-          display: inline-block;          
+          display: inline-block;
         }
 
-        .section.main a {
-          width: 9em;
-          height: 4em;
-          margin: .4em;
-          padding:.4em;
+        .sub {
+          min-width: 12em a;
+          min-width-padding: .8em .4em;
         }
 
+        .hilight i {
+          font-size: 1.4em;
+        }
       }
-    </style>
 
+    </style>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -257,23 +275,26 @@
     </div>
     <div id="content">
 
-      <div id="search" class="aside tab">
+      <section id="search" class="main tab">
         <h2><a href="#search"><i class="fa fa-search"></i>Search</a></h2>
         <form method="get" action="http://www.google.com/search">
           <img src="http://developers.google.com/_static/images/v2/developers-logo.png">
-          <input type="text"   name="q" size="25" maxlength="255" value="Search Term" />
+          <input type="text" name="q" size="25" maxlength="255" value="Search Term" />
           <input type="submit" value="Search" />
         </form>
-      </div>
+      </section>
 
-      <div id="test" class="aside tab">
+      <section id="test" class="main tab hilight">
         <h2><a href="#test"><i class="fa fa-cogs"></i>Tests</a></h2>
 
-        <div class="section main">
-          <form id="domaintools">
-            <label for="checkurl">Enter a domain to test...</label>
+        <form id="domaintools">
+
+          <fieldset>
+            <legend>Enter a domain to test...</legend>
             <input id="checkurl" type="text" value="www.foo.com" size="64" />
-            <label for="tests">...and select a test to run</label>
+          </fieldset>
+          <fieldset>
+            <legend>...and select a test to run</legend>
             <ul id="tests">
               <li><a href="https://domains.google.com/registrar?s="><i class="fa fa-power-off"></i>Domain Availability</a></li>
               <li><a href="http://www.whois.com/whois/"><i class="fa fa-user-secret"></i>WhoIs</a></li>
@@ -281,17 +302,18 @@
               <li><a href="http://validator.w3.org/check?uri="><i class="fa fa-html5"></i>Validate HTML</a></li>
               <li><a href="https://jigsaw.w3.org/css-validator/validator?uri="><i class="fa fa-css3"></i>Validate CSS</a></li>
               <li><a href="http://www.google.com/webmasters/tools/richsnippets?q="><i class="fa fa-bullseye"></i>Rich Snippets</a></li>
+              <li><a href="https://majestic.com/reports/site-explorer?folder=&IndexDataSource=F&q="><i class="fa fa-star-o"></i>Majestic Site Explorer</a></li>
               <li><a href="https://moz.com/researchtools/ose/links?site="><i class="fa fa-link"></i>Open Site Explorer</a></li>
 
             </ul>
-          </form>
-        </div>
-      </div>
+          </fieldset>
+        </form>
+      </section>
 
-      <div id="tools" class="aside tab">
+      <section id="tools" class="main tab">
         <h2><a href="#tools"><i class="fa fa-wrench"></i>Tools</a></h2>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-picture-o"></i>Images</h2>
           <ul>
             <li><a href="http://www.favicon-generator.org/">Favicon Generator</a></li>
@@ -301,32 +323,32 @@
             <li><a href="http://www.photoshop.com/tools?wf=editor">Photoshop Express</a></li>
 
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-paint-brush"></i>Design</h2>
           <ul>
             <li><a href="http://css3please.com/">CSS3, Please</a></li>
-            <li><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a></li>
+            <li><a href="https://color.adobe.com/explore/most-popular/">Kuler</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-font"></i>Typography</h2>
           <ul>
             <li><a href="http://www.cssfontstack.com/" class="itool">CSS Font Stack</a></li>
             <li><a href="http://www.google.com/fonts/">Google Fonts</a></li>
             <li><a href="http://www.typegenius.com/">Type Genius</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-terminal"></i>Javascript</h2>
           <ul>
             <li><a href="http://closure-compiler.appspot.com/">Closure Compiler</a></li>
             <li><a href="http://jsfiddle.net/">JS Fiddle</a></li>
             <li><a href="http://www.jslab.dk/tools.regex.php">Regex Generator</a></li>
-            <li>CDN Sources
+            <li><h3>CDN Sources</h3>
               <ul>
                 <li><a href="https://developers.google.com/speed/libraries/devguide#libraries">Google</a></li>
                 <li><a href="http://www.asp.net/ajax/cdn">Microsoft</a></li>
@@ -334,28 +356,28 @@
               </ul>
             </li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-check"></i>Testing</h2>
           <ul>
             <li><a href="http://browsershots.org/">Browser Shots</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-search"></i>SEO</h2>
           <ul>
             <li><a href="https://adwords.google.com/ko/KeywordPlanner">Google Keyword Planner</a></li>
             <li><a href="http://keywordtool.io/">Keyword Tool</a></li>
           </ul>
-        </div>
-      </div>
+        </section>
+      </section>
 
-      <div id="reference" class="aside tab">
+      <section id="reference" class="main tab">
         <h2><a href="#reference"><i class="fa fa-book"></i>Reference</a></h2>
 
-        <div class="section">
+        <section class="sub">
           <h2><i class="fa fa-cogs"></i></h2>
           <ul>
             <li><a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a></li>
@@ -367,9 +389,9 @@
             <li><a href="http://git-scm.com/docs">Git Cheatsheet</a></li>
             <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2>PHP</h2>
           <ul>
             <li><a href="http://php.net/manual/en/funcref.php">PHP</a></li>
@@ -383,9 +405,9 @@
             <li><a href="https://api.joomla.org/">Joomla</a></li>
             <li><a href="https://developer.wordpress.org/reference/">WordPress</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2>Javascript</h2>
           <ul>
             <li><a href="http://api.jquery.com/">jQuery</a></li>
@@ -404,9 +426,9 @@
             <li><a href="http://facebook.github.io/react/docs/top-level-api.html">React</a></li>
             <li><a href="http://nodejs.org/api/">Node</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2>Styling</h2>
           <ul>
             <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">SASS</a>
@@ -416,18 +438,18 @@
               </ul></li>
             <li><a href="http://lesscss.org/features/">LESS</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2>Database</h2>
           <ul>
             <li><a href="http://dev.mysql.com/doc/">MySQL</a></li>
             <li><a href="http://docs.mongodb.org/manual/">mongoDB</a></li>
             <li><a href="http://www.postgresql.org/docs/">PostgreSQL</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <h2>Etc.</h2>
           <ul>
             <li><a href="http://ruby-doc.org/core-2.2.0/">Ruby</a>
@@ -441,28 +463,30 @@
               </ul>
             </li>
           </ul>
-        </div>
-      </div>
+        </section>
 
-      <div id="inspiration" class="aside tab">
+      </section>
+
+      <section id="inspiration" class="main tab">
         <h2><a href="#inspiration"><i class="fa fa-eye"></i>Inspiration</a></h2>
-        <div class="section">
+
+        <section class="sub">
           <ul>
             <li><a href="http://codepen.io/">Codepen</a></li>
             <li><a href="http://cssdeck.com/">CSSDeck</a></li>
             <li><a href="http://codyhouse.co/library/">Codyhouse</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <ul>
             <li><a href="http://addyosmani.com/blog/">Addy Osmani</a></li>
             <li><a href="http://davidwalsh.name/">David Walsh</a></li>
             <li><a href="http://www.lukew.com/ff/">Luke Wroblewski</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <ul>
             <li><a href="http://alistapart.com/">A List Apart</a></li>
             <li><a href="http://tympanus.net/codrops/">Codrops</a></li>
@@ -473,21 +497,23 @@
             <li><a href="http://speckyboy.com/">Speckyboy</a></li>
             <li><a href="http://www.webdesignerdepot.com/">Web Designer Depot</a></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="sub">
           <ul>
             <li><a href="http://www.awwwards.com/">Awwwards</a></li>
             <li><a href="https://www.thebestdesigns.com/">The Best Designs</a></li>
             <li><a href="http://www.webcreme.com/">Web Creme</a></li>
           </ul>
-        </div>
+        </section>
 
-      </div>
+      </section>
 
       <!-- /#content -->
-  </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
     <script>
       (function ($) {
 
@@ -497,12 +523,21 @@
               this.value = '';
             }
           });
-          // $('#nav ul').append('<li>' + $('.section').find('h2') + '</li>');
-          $('.aside.tab').each(function () {
-            var title = $(this).find(' > h2');
+
+          $('.main').each(function () {
+            var t = $(this);
+            var title = t.find(' > h2');
             $('#nav').find('ul').append('<li>' + title.html() + '</li>');
             title.find('i').unwrap();
+            t.find('section').wrapAll('<div class="masonry" />');
           });
+
+          $('.masonry').masonry({
+            columnWidth: 200,
+            itemSelector: '.sub',
+            isFitWidth: true
+          });
+
         })();
 
         (function domaintools() {
